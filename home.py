@@ -93,7 +93,7 @@ with st.container(border=True):
         last_three_pos = st.checkbox('LAST THREE POSITIVE CANDELS')
 
     with check_col3:
-        price_gap_pctg = st.checkbox('PRICE GAP up')
+        price_gap_pctg = st.checkbox('PRICE GAP UP')
         price_gap_consolidation = st.checkbox('PRICE GAP UP FROM CONSOLIDATION')
         nad_buy_signals = st.checkbox('CHART INDICATOR BUY SIGNALS ')
         nad_sell_signals = st.checkbox('CHART INDICATOR SELL SIGNALS ')
