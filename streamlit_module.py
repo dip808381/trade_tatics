@@ -68,7 +68,7 @@ def numeric_filter(df, column_name, col_name_change):
 def search_by_ticker(data):
     col_name_change = rename_columns()
     # data.rename(columns=rename_columns(), inplace=True)
-    ser_name = st.selectbox('GET ALL TECHNICAL AND FUNDAMENTAL ANALYSIS..', ['COMPANY_NAME','TICKER'], index=None, placeholder='search by company or ticker..')
+    ser_name = st.selectbox('GET ALL TECHNICAL AND FUNDAMENTAL ANALYSIS..', ['TICKER','COMPANY_NAME'], placeholder='search by company or ticker..')
 
     if ser_name == 'COMPANY_NAME':
         stk_comp = st.selectbox('Search by company name..', list(data['COMPANY_NAME'].unique()), index=None, placeholder='search by company..')
@@ -108,7 +108,6 @@ def search_by_ticker(data):
             df_tic.columns = ['COLUMNS', 'VALUES']
             plot_candle(stk_tic)
             col3, col4 = st.columns(2)
-            st.write(len(df_tic))
             with col3:
                 st.table(df_tic[:len(df_tic)//2])
             with col4:
