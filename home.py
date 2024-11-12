@@ -13,7 +13,7 @@ data = data[['STOCK', 'COMPANY_NAME', 'MARKET_CAP(CR)', 'VOLUME', 'RELATIVE_VOLU
        'TREND_THREE', 'TREND_SIX', 'RSI', 'ATR',
        'RSI_INDICATOR', 'UPTREND_INDICATOR', 'MOVING_AVG_IND', 'STRENGTH',
        'CHART_INDICATOR', 'BREAKOUT', 'LAST_THREE_CANDEL',
-       'VOL_PRC_CORR', 'PRICE_DIFF', 'PEICE_GAP_PCTG', 'CDL_NME_TDY', 'CDL_SCR_TDY']]
+       'VOL_PRC_CORR', 'PRICE_DIFF', 'PEICE_GAP_PCTG','NADARAYA_WATSON', 'CDL_NME_TDY', 'CDL_SCR_TDY']]
 
 with st.container(border=True):
     # Initialize session state variable to detect refresh
