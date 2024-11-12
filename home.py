@@ -22,7 +22,7 @@ with st.container(border=True):
     # Code to run only on page refresh
     if st.session_state.page_refreshed:
         market_data = display_market()
-        display_matrix(market_data, 'Indian Indices',columns_per_row = 4)
+        display_matrix(market_data, 'Indian Indices',columns_per_row = 4, percentage=False)
 
 # data refreshed
 current_date, current_time = get_current_date_time()

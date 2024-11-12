@@ -245,7 +245,8 @@ def display_matrix(values, header, columns_per_row = 6, percentage=True):
                 if percentage:
                     col.metric(value[0], round(value[1]), str(round(value[2])) + '%')
                 else:
-                    col.metric(value[0], round(value[1]), str(round(value[2])))
+                    col.metric(value[0], value[1], str(value[2]))
+
 
     else:
         values = values[:columns_per_row*2]
@@ -259,7 +260,7 @@ def display_matrix(values, header, columns_per_row = 6, percentage=True):
                 if percentage:
                     col.metric(value[0], round(value[1]), str(round(value[2])) + '%')
                 else:
-                    col.metric(value[0], round(value[1]), str(round(value[2])))
+                    col.metric(value[0], value[1], str(value[2]))
 
 
 # fundamental analysis
