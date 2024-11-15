@@ -43,20 +43,20 @@ col_name_change = rename_columns()
 with st.container(border=True):
     search_by_ticker(data)
 
-filter_toggle = st.toggle('Click here if you want to add filters..')
-if filter_toggle:
-    with st.container(border=True):
-        data, selective_df, all_selected = filter_stocks(data, col_name_change)
-        if len(all_selected.strip()) != 0:
-            st.success(f'You are searching for {all_selected}...'.upper())
-        else:
-            st.warning('Select columns to filter the best stocks...')
-        selective_df_toggle = st.toggle('Click here if you want to see only selective columns..')
-        if len(selective_df.columns) > 4 and selective_df_toggle:
-            st.text("""Market capital, volume and price are included in selective column search""")
-            st.dataframe(selective_df.reset_index(drop=True), height = 600, width=1500)
-        else:
-            st.dataframe(data.reset_index(drop=True), height = 600, width=1500)
-else:
-    st.dataframe(data.reset_index(drop=True), height = 600, width=1500)
+# filter_toggle = st.toggle('Click here if you want to add filters..')
+# if filter_toggle:
+with st.container(border=True):
+    data, selective_df, all_selected = filter_stocks(data, col_name_change)
+    if len(all_selected.strip()) != 0:
+        st.success(f'You are searching for {all_selected}...'.upper())
+    else:
+        st.warning('Select columns to filter the best stocks...')
+    selective_df_toggle = st.toggle('Click here if you want to see only selective columns..')
+    if len(selective_df.columns) > 4 and selective_df_toggle:
+        st.text("""Market capital, volume and price are included in selective column search""")
+        st.dataframe(selective_df.reset_index(drop=True), height = 600, width=1500)
+    else:
+        st.dataframe(data.reset_index(drop=True), height = 600, width=1500)
+# else:
+#     st.dataframe(data.reset_index(drop=True), height = 600, width=1500)
 
