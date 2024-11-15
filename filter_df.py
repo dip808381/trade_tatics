@@ -11,18 +11,17 @@ file_name = os.listdir(tmp)[-1]
 data = pd.read_csv(os.path.join(tmp,file_name))
 
 current_date, current_time = get_current_date_time()
-match = re.search(r'(\d{4}_\d{2}_\d{2})', file_name)
-cur_date = match.group(1)
+mod_date, mod_time = extract_date_and_time(file_name)
 
 hed1, hed2 = st.columns(2)
 
 with hed1:
     st.title("Filter Stocks ")
 with hed2:
-    if current_date.replace('-', ':') == cur_date.replace('_',':'):
-        st.success('Last updated on - ' + cur_date.replace('_','-'))
+    if current_date == mod_date:
+            st.success('As on - ' + mod_date +" "+mod_time)
     else:
-        st.info('Last updated on - ' + cur_date.replace('_','-'))
+        st.warning('As on - ' + mod_date +" "+mod_time)
 # st.write(
 #     """This app accomodates the blog [here](https://blog.streamlit.io/auto-generate-a-dataframe-filtering-ui-in-streamlit-with-filter_dataframe/)
 #     and walks you through one example of how the Streamlit

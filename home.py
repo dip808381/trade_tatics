@@ -6,6 +6,19 @@ import os
 st.markdown("<h1 style='text-align: center;'>WELCOME TO TRADE TACTICS</h1>", unsafe_allow_html=True)
 
 tmp = 'tmp'
+
+if not os.path.exists(tmp) or len(os.listdir(tmp)) == 0:
+    try:
+        shutil.rmtree(tmp)
+        os.mkdir(tmp)
+    except:
+        os.mkdir(tmp)
+    mod_date_time, data = load_data()
+    mod_date, mod_time = extract_date_and_time(mod_date_time)
+    mod_time = mod_time.replace(":", "_")
+    f_name = f"{mod_date}_{mod_time}.csv"
+    data.to_csv(os.path.join(tmp,f_name), index=False)
+
 file_name = os.listdir(tmp)[-1]
 data = pd.read_csv(os.path.join(tmp,file_name))
 
@@ -26,8 +39,8 @@ with st.container(border=True):
 
 # data refreshed
 current_date, current_time = get_current_date_time()
-match = re.search(r'(\d{4}_\d{2}_\d{2})', file_name)
-cur_date = match.group(1)
+mod_date, mod_time = extract_date_time_from_filename(file_name)
+
 with st.container(border=True):
     note, update = st.columns(2)
     with note:
@@ -35,18 +48,21 @@ with st.container(border=True):
         refresh = st.button('Refresh', type="primary")
         if refresh:
             shutil.rmtree('tmp')
-            st.write(current_time)
+            st.write('Refreshed')
             tmp = 'tmp'
             if not os.path.exists(tmp):
                 os.mkdir(tmp)
-                file_name, data = load_data()
-                data.to_csv(os.path.join(tmp,file_name), index=False)
+                mod_date_time, data = load_data()
+                mod_date, mod_time = extract_date_and_time(mod_date_time)
+                mod_time = mod_time.replace(":", "_")
+                f_name = f"{mod_date}_{mod_time}.csv"
+                data.to_csv(os.path.join(tmp,f_name), index=False)
 
     with update:
-        if current_date.replace('-', ':') == cur_date.replace('_',':'):
-            st.success('As on - ' + cur_date.replace('_','-'))
+        if current_date == mod_date:
+            st.success('As on - ' + mod_date +" "+mod_time.replace("_", ":"))
         else:
-            st.warning('As on - ' + cur_date.replace('_','-'))
+            st.warning('As on - ' + mod_date +" "+mod_time.replace("_", ":"))
 
 
 
@@ -75,6 +91,7 @@ with st.container():
     losers = [list(v.values) for i, v in gainers_losers_df.iterrows() if v.values[2] < -5][::-1]
     display_matrix(losers, 'Top Losers')
 
+st.markdown("<h1 style='text-align: center;'>Quick Filter..</h1>", unsafe_allow_html=True)
 with st.container(border=True):
     check_col1, check_col2, check_col3 = st.columns(3)
     with check_col1:

@@ -1,4 +1,5 @@
 import re
+import pytz
 import requests
 import pandas as pd
 from io import StringIO
@@ -10,6 +11,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from azure.storage.blob import BlobServiceClient
+ist = pytz.timezone('Asia/Kolkata')
 import os
 
 def wide_space_default():
@@ -373,7 +375,9 @@ def stock_data(tickers, period, interval):
     df.columns = ['Adj Close', 'Open','High','Low','Close','Volume']
     return df
 
-def plot_candle(name, period='1y', interval='1d'):
+def plot_candle(name):
+    period = st.select_slider("Select Period", options=['1mo', '3mo', '6mo', '1y', '2y', '5y', '10y'], value='6mo')
+    interval = st.select_slider("Select Interval", options=["1h","1d","5d","1wk","1mo","3mo"], value='1d')
     df = stock_data(name+'.NS',period,interval)
     # Create subplots and mention plot grid size
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, 
@@ -392,6 +396,24 @@ def plot_candle(name, period='1y', interval='1d'):
     # Do not show OHLC's rangeslider plot 
     fig.update(layout_xaxis_rangeslider_visible=False)
     st.plotly_chart(fig)
+
+def extract_date_and_time(datetime_str):
+    # Regex pattern to match date (YYYY-MM-DD) and time (HH:MM:SS)
+    match = re.search(r"(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2}:\d{2})", datetime_str)
+    if match:
+        date = match.group(1)  # Extract the date part
+        time = match.group(2)  # Extract the time part
+        return date, time
+    return None, None
+
+def extract_date_time_from_filename(filename):
+    # Regex pattern to match the date and time
+    match = re.search(r"(\d{4}-\d{2}-\d{2})_(\d{2}_\d{2}_\d{2})", filename)
+    if match:
+        date_str = match.group(1)  # Extract date
+        time_str = match.group(2).replace("_", ":")  # Extract time and replace underscores with colons
+        return date_str, time_str
+    return None, None
     
 def account_details():
     account_url = "https://tradetatics.blob.core.windows.net"
@@ -421,4 +443,5 @@ def load_data():
         downloaded_data = blob_client.download_blob().readall().decode("utf-8")
         stk_df = pd.read_csv(StringIO(downloaded_data))
         
-    return file_name, stk_df
+    modified_time = blob_client.get_blob_properties().last_modified.astimezone(ist).strftime("%Y-%m-%d %H:%M:%S %Z")
+    return modified_time, stk_df
