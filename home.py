@@ -69,19 +69,19 @@ with st.container(border=True):
 with st.container(border=True):
     search_by_ticker(data)
 
-cap_toggle = st.toggle('Filter by market cap')
-if cap_toggle:
-    cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'], index=None)
-    if cap_size == 'Large cap':
-        data = data[data['MARKET_CAP(CR)'] >= 20000].reset_index(drop=True)
-    if cap_size == 'Mid Cap':
-        data = data[data['MARKET_CAP(CR)'].between(5000, 20000)].reset_index(drop=True)
-    if cap_size == 'Small Cap':
-        data = data[data['MARKET_CAP(CR)'] <= 5000].reset_index(drop=True)
-    if cap_size == 'Below 500(cr)':
-        data = data[data['MARKET_CAP(CR)'] <= 500].reset_index(drop=True)
-    if cap_size == 'Above 500(cr)':
-        data = data[data['MARKET_CAP(CR)'] >= 500].reset_index(drop=True)
+cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
+if cap_size == 'All':
+    data = data
+if cap_size == 'Large cap':
+    data = data[data['MARKET_CAP(CR)'] >= 20000].reset_index(drop=True)
+if cap_size == 'Mid Cap':
+    data = data[data['MARKET_CAP(CR)'].between(5000, 20000)].reset_index(drop=True)
+if cap_size == 'Small Cap':
+    data = data[data['MARKET_CAP(CR)'] <= 5000].reset_index(drop=True)
+if cap_size == 'Below 500(cr)':
+    data = data[data['MARKET_CAP(CR)'] <= 500].reset_index(drop=True)
+if cap_size == 'Above 500(cr)':
+    data = data[data['MARKET_CAP(CR)'] >= 500].reset_index(drop=True)
 
 with st.container():
     gainers_losers_df= data[['STOCK','PRICE', 'PRICE_DIFF']].sort_values(by='PRICE_DIFF', ascending= False).reset_index(drop=True)
@@ -163,7 +163,7 @@ if breakout_high_vol:
 
 if breakout_consolidation:
     with st.container():
-        brkout_no_trend = data[(data['BREAKOUT'] == True)& (data['TREND_THREE'] == 'NO TREND')|(data['TREND_THREE'] == 'DECREASING')& (data['PRICE_DIFF'] > 0)].sort_values('RELATIVE_VOLUME',ascending=False).reset_index(drop=True)
+        brkout_no_trend = data[(data['BREAKOUT'] == True)& (data['TREND_THREE'] == 'NO TREND') & (data['PRICE_DIFF'] > 0)].sort_values('RELATIVE_VOLUME',ascending=False).reset_index(drop=True)
         brkout_no_trend = brkout_no_trend[['STOCK','PRICE', 'PRICE_DIFF']]
         brkout_no_trend = [list(v.values) for i, v in brkout_no_trend.iterrows()]
         display_matrix(brkout_no_trend, 'BREAKOUT FROM CONSOLIDATION')
@@ -224,7 +224,3 @@ if candle_score:
     candle_score = candle_score[['STOCK','PRICE', 'PRICE_DIFF']]
     candle_score = [list(v.values) for i, v in candle_score.iterrows()]
     display_matrix(candle_score, 'CANDLE SCORE')
-
-
-
-

@@ -66,7 +66,7 @@ def numeric_filter(df, column_name, col_name_change):
     
     else:
         return df, ''
-    
+
 def search_by_ticker(data):
     col_name_change = rename_columns()
     # data.rename(columns=rename_columns(), inplace=True)
@@ -91,14 +91,16 @@ def search_by_ticker(data):
 
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
-                #stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'STOCK']
-                df_fund = pd.DataFrame(fund_prft(stk_tic_val).items())
-                df_fund.columns = ['COLUMNS', 'VALUES']
-                fund_col1, fund_col2 = st.columns(2)
-                with fund_col1:
-                    st.table(df_fund[:len(df_fund)//2])
-                with fund_col2:
-                    st.table(df_fund[len(df_fund)//2:])
+                try:
+                    #stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'STOCK']
+                    df_fund = pd.DataFrame(fund_prft(stk_tic_val).items(), columns = ['COLUMNS', 'VALUES'])
+                    fund_col1, fund_col2 = st.columns(2)
+                    with fund_col1:
+                        st.dataframe(df_fund[:len(df_fund)//2], width=350)
+                    with fund_col2:
+                        st.dataframe(df_fund[len(df_fund)//2:], width=350)
+                except:
+                    st.warning('Dataset is not available')
 
     elif ser_name == 'TICKER':
         stk_tic = st.selectbox('Search by ticker..', list(data['STOCK'].unique()), index=None, placeholder='search by ticker..')
@@ -117,13 +119,15 @@ def search_by_ticker(data):
 
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
-                df_fund = pd.DataFrame(fund_prft(stk_tic).items())
-                df_fund.columns = ['COLUMNS', 'VALUES']
-                fund_col1, fund_col2 = st.columns(2)
-                with fund_col1:
-                    st.table(df_fund[:len(df_fund)//2])
-                with fund_col2:
-                    st.table(df_fund[len(df_fund)//2:])
+                try:
+                    df_fund = pd.DataFrame(fund_prft(stk_tic).items(),columns = ['COLUMNS', 'VALUES'])
+                    fund_col1, fund_col2 = st.columns(2)
+                    with fund_col1:
+                        st.dataframe(df_fund[:len(df_fund)//2], width=350)
+                    with fund_col2:
+                        st.dataframe(df_fund[len(df_fund)//2:], width=350)
+                except:
+                    st.warning('Dataset is not available')
 
     
 
@@ -308,7 +312,7 @@ def fund_analysis(soup):
         except:
             val = val
         my_list.append(val)
-
+    my_list = filter_list(my_list)
     my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}   
     return my_dict
 
@@ -349,7 +353,7 @@ def fund_prft(stock):
             break
     dic_ = fund_analysis(soup)
     fin_dic = Merge(dic_, dic)
-    return {key.upper():round(val, 2) for key,val in fin_dic.items() if key not in ['Market Cap', 'High / Low']}
+    return {key.upper():val for key,val in fin_dic.items() if key not in ['Market Cap', 'High / Low']}
 
 def is_the_only_string_within_a_tag(s):
     """Return True if this string is the only child of its parent tag."""
@@ -414,6 +418,20 @@ def extract_date_time_from_filename(filename):
         time_str = match.group(2).replace("_", ":")  # Extract time and replace underscores with colons
         return date_str, time_str
     return None, None
+
+def filter_list(my_lst):
+    # Process the list
+    filtered_data = []
+    i = 0
+
+    while i < len(my_lst):
+        if isinstance(my_lst[i], str):
+            if i + 1 < len(my_lst) and isinstance(my_lst[i + 1], int):
+                filtered_data.extend([my_lst[i], my_lst[i + 1]])
+            i += 2  # Skip both string and integer
+        else:
+            i += 1  # Skip invalid entries
+    return filtered_data
     
 def account_details():
     account_url = "https://tradetatics.blob.core.windows.net"
