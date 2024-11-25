@@ -92,13 +92,10 @@ def search_by_ticker(data):
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
                 try:
-                    #stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'STOCK']
-                    df_fund = pd.DataFrame(fund_prft(stk_tic_val).items(), columns = ['COLUMNS', 'VALUES'])
-                    fund_col1, fund_col2 = st.columns(2)
-                    with fund_col1:
-                        st.dataframe(df_fund[:len(df_fund)//2], width=350)
-                    with fund_col2:
-                        st.dataframe(df_fund[len(df_fund)//2:], width=350)
+                    df_fund, fund_changes = fund_analysis(stk_tic_val)
+                    st.table(df_fund)
+                    st.table(fund_changes)
+                    
                 except:
                     st.warning('Dataset is not available')
 
@@ -120,12 +117,9 @@ def search_by_ticker(data):
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
                 try:
-                    df_fund = pd.DataFrame(fund_prft(stk_tic).items(),columns = ['COLUMNS', 'VALUES'])
-                    fund_col1, fund_col2 = st.columns(2)
-                    with fund_col1:
-                        st.dataframe(df_fund[:len(df_fund)//2], width=350)
-                    with fund_col2:
-                        st.dataframe(df_fund[len(df_fund)//2:], width=350)
+                    df_fund, fund_changes = fund_analysis(stk_tic)
+                    st.table(df_fund)
+                    st.table(fund_changes)
                 except:
                     st.warning('Dataset is not available')
 
@@ -291,7 +285,11 @@ def remove_special_characters(text):
     
     return text_without_special_chars
 
-def fund_analysis(soup):
+
+def fund_analysis(ticker):
+    url = f"https://www.screener.in/company/{ticker}/consolidated/"
+    request = requests.get(url)
+    soup = BeautifulSoup(request.text, 'html.parser')
     op_ = soup.findAll('div', class_='company-ratios')
     input_list = []
     for i in op_[0].find_all('span'):
@@ -312,48 +310,28 @@ def fund_analysis(soup):
         except:
             val = val
         my_list.append(val)
-    my_list = filter_list(my_list)
-    my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)}   
-    return my_dict
-
-def fund_prft(stock):
-    for i in range(10):
-        ticker = stock
-        url = f"https://www.screener.in/company/{ticker}/"
-        #url = f"https://www.screener.in/company/{ticker}/"
-        request = requests.get(url)
-        dic = {}
-        soup = BeautifulSoup(request.text, 'html.parser')
-        op = soup.findAll('tr', class_='strong')
-        for i in op:
-            try:
-                key =i.td.string.strip()
-            except:
-                key = remove_special_characters(i.td.text.strip().replace('\xa0', ''))
-
-            value = []
-            for val in i.findAll('td', class_=['', "highlight-cell"]):
-                try:
-                    value.append(int(float(val.text.replace(',', ''))))
-                except:continue
-            #value = [int(float(val.text.replace(',', ''))) for val in i.findAll('td', class_='')]
-            #percent = round((len([a for a in value if a%2==0]) / len(value)) * 100, 2)
-            #print(key, value)
-            percent = growth(value)
-
-            if key not in dic:
-                #key = key+'_qtr'
-                dic[key] = percent
-            else:
-                key = key+'_yr'
-                dic[key] = percent
-        if len(dic) == 0:
-            continue
-        else:
-            break
-    dic_ = fund_analysis(soup)
-    fin_dic = Merge(dic_, dic)
-    return {key.upper():val for key,val in fin_dic.items() if key not in ['Market Cap', 'High / Low']}
+    
+    my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)} 
+    fund_cols = my_dict.keys()
+    fund_row = my_dict.values()
+    fund_df = pd.DataFrame(fund_row).T
+    fund_df.columns = fund_cols
+    
+    dfs=[]
+    op_growth = soup.findAll('table', class_='ranges-table')
+    for op_g in op_growth:
+        my_list_ = op_g.find_all(string=is_the_only_string_within_a_tag)
+        my_list = my_list_[1:]
+        my_list[-2] = 'Last Year'
+        val = {my_list[i].replace(':',''): my_list[i + 1] for i in range(0, len(my_list), 2)}
+        df = pd.DataFrame(val.items())
+        df.set_index(df.columns[0], inplace=True) 
+        df.index.name = None
+        df.columns = [my_list_[0]]
+        dfs.append(df)
+        
+    fund_changes = pd.concat(dfs, axis=1)
+    return fund_df, fund_changes
 
 def is_the_only_string_within_a_tag(s):
     """Return True if this string is the only child of its parent tag."""

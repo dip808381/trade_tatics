@@ -105,7 +105,7 @@ with st.container(border=True):
     with check_col2:
         breakout_high_vol = st.checkbox('BREAKOUT')
         breakout_consolidation = st.checkbox('BREAKOUT FROM CONSOLIDATION')
-        super_trend =  st.checkbox('SUPER TREND')
+        super_trend =  st.checkbox('UP TREND')
         chart_ind = st.checkbox('LAST HIGH PRICE EXCEEDS')
         last_three_pos = st.checkbox('LAST THREE POSITIVE CANDELS')
 
