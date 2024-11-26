@@ -92,8 +92,8 @@ def search_by_ticker(data):
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
                 try:
-                    df_fund, fund_changes = fund_analysis(stk_tic_val)
-                    st.table(df_fund)
+                    df_fund, fund_changes = get_fundamentals(stk_tic_val)
+                    st.dataframe(df_fund, width=750)
                     st.table(fund_changes)
                     
                 except:
@@ -117,8 +117,8 @@ def search_by_ticker(data):
             fund_ana = st.toggle('Check fundamental analysis..')
             if fund_ana:
                 try:
-                    df_fund, fund_changes = fund_analysis(stk_tic)
-                    st.table(df_fund)
+                    df_fund, fund_changes = get_fundamentals(stk_tic)
+                    st.dataframe(df_fund, width=750)
                     st.table(fund_changes)
                 except:
                     st.warning('Dataset is not available')
@@ -286,10 +286,20 @@ def remove_special_characters(text):
     return text_without_special_chars
 
 
-def fund_analysis(ticker):
-    url = f"https://www.screener.in/company/{ticker}/consolidated/"
-    request = requests.get(url)
-    soup = BeautifulSoup(request.text, 'html.parser')
+def get_fundamentals(ticker):
+    try:
+        url = f"https://www.screener.in/company/{ticker}/consolidated/"
+        request = requests.get(url)
+        soup = BeautifulSoup(request.text, 'html.parser')
+        fund_df, fund_changes = fund_analysis(soup, ticker)
+    except:
+        url = f"https://www.screener.in/company/{ticker}/"
+        request = requests.get(url)
+        soup = BeautifulSoup(request.text, 'html.parser')
+        fund_df, fund_changes = fund_analysis(soup, ticker)
+    return fund_df, fund_changes
+    
+def fund_analysis(soup, ticker):
     op_ = soup.findAll('div', class_='company-ratios')
     input_list = []
     for i in op_[0].find_all('span'):
@@ -312,10 +322,13 @@ def fund_analysis(ticker):
         my_list.append(val)
     
     my_dict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list), 2)} 
+    my_dict = {key:val for key,val in my_dict.items() if key not in ['Market Cap', 'High / Low']}
     fund_cols = my_dict.keys()
     fund_row = my_dict.values()
     fund_df = pd.DataFrame(fund_row).T
     fund_df.columns = fund_cols
+    fund_df.index.names = [ticker]
+    fund_df.rename(index={0: 'Numbers'}, inplace=True)
     
     dfs=[]
     op_growth = soup.findAll('table', class_='ranges-table')
