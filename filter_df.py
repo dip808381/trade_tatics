@@ -8,7 +8,7 @@ import shutil
 
 tmp = 'tmp'
 
-file_name = os.listdir(tmp)[-1]
+file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
 data = pd.read_csv(os.path.join(tmp,file_name))
 
 current_date, current_time = get_current_date_time()

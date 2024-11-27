@@ -1,6 +1,7 @@
 import re
 import pytz
 import requests
+import json
 import pandas as pd
 from io import StringIO
 import streamlit as st
@@ -276,6 +277,15 @@ def growth(values):
         pect = 0
     return round(pect, 2)
 
+def read_json(json_path):
+    with open(json_path, 'r+', encoding='utf-8') as test:
+        json_file = json.load(test)
+    return json_file
+
+def dump_json(json_path, dic):
+    with open(json_path, 'w') as fp:
+        json.dump(dic, fp, indent=4)
+
 def remove_special_characters(text):
     # Define the pattern for special characters using regular expression
     pattern = r'[^a-zA-Z0-9\s]'  # This pattern matches anything that is not alphanumeric or whitespace
@@ -452,5 +462,10 @@ def load_data():
         downloaded_data = blob_client.download_blob().readall().decode("utf-8")
         stk_df = pd.read_csv(StringIO(downloaded_data))
         
+    forecast_json_path = 'daily_forecast.json'
+    blob_client = container_client.get_blob_client(forecast_json_path)
+    downloaded_data = blob_client.download_blob().readall().decode("utf-8")
+    json_file = json.load(StringIO(downloaded_data))
+
     modified_time = blob_client.get_blob_properties().last_modified.astimezone(ist).strftime("%Y-%m-%d %H:%M:%S %Z")
-    return modified_time, stk_df
+    return modified_time, stk_df, json_file
