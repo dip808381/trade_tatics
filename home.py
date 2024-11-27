@@ -61,6 +61,7 @@ with st.container(border=True):
                 csv_data.to_csv(os.path.join(tmp,f_name), index=False)
                 dump_json(os.path.join(tmp,forecast_json_path), json_pred)
             my_bar.empty()
+            st.write('Data is updated in real-time.')
 
     with update:
         if current_date == mod_date:
