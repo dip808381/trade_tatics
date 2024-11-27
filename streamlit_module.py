@@ -90,15 +90,13 @@ def search_by_ticker(data):
             with col2:
                 st.table(df_comp[len(df_comp)//2:])
 
-            fund_ana = st.toggle('Check fundamental analysis..')
-            if fund_ana:
-                try:
-                    df_fund, fund_changes = get_fundamentals(stk_tic_val)
-                    st.dataframe(df_fund, width=750)
-                    st.table(fund_changes)
-                    
-                except:
-                    st.warning('Dataset is not available')
+            try:
+                df_fund, fund_changes = get_fundamentals(stk_tic_val)
+                st.dataframe(df_fund, width=750)
+                st.table(fund_changes)
+                
+            except:
+                st.warning('Dataset is not available')
 
     elif ser_name == 'TICKER':
         stk_tic = st.selectbox('Search by ticker..', list(data['STOCK'].unique()), index=None, placeholder='search by ticker..')
@@ -115,14 +113,12 @@ def search_by_ticker(data):
             with col4:
                 st.table(df_tic[len(df_tic)//2:])
 
-            fund_ana = st.toggle('Check fundamental analysis..')
-            if fund_ana:
-                try:
-                    df_fund, fund_changes = get_fundamentals(stk_tic)
-                    st.dataframe(df_fund, width=750)
-                    st.table(fund_changes)
-                except:
-                    st.warning('Dataset is not available')
+            try:
+                df_fund, fund_changes = get_fundamentals(stk_tic)
+                st.dataframe(df_fund, width=750)
+                st.table(fund_changes)
+            except:
+                st.warning('Dataset is not available')
 
     
 
