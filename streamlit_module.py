@@ -84,12 +84,13 @@ def search_by_ticker(data):
             stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'TICKER']
             stk_tic_val = stk_tic['VALUES'][0]
             plot_candle(stk_tic_val)
+            st.markdown("<h1 style='text-align: center; font-size: 24px;'>Technical Analysis</h1>", unsafe_allow_html=True)
             col1, col2 = st.columns(2)
             with col1:
                 st.table(df_comp[:len(df_comp)//2])
             with col2:
                 st.table(df_comp[len(df_comp)//2:])
-
+            st.markdown("<h1 style='text-align: center; font-size: 24px;'>Fundamental Analysis</h1>", unsafe_allow_html=True)
             try:
                 df_fund, fund_changes = get_fundamentals(stk_tic_val)
                 st.dataframe(df_fund, width=750)
@@ -107,22 +108,19 @@ def search_by_ticker(data):
             df_tic.reset_index(inplace=True)
             df_tic.columns = ['COLUMNS', 'VALUES']
             plot_candle(stk_tic)
+            st.markdown("<h1 style='text-align: center; font-size: 24px;'>Technical Analysis</h1>", unsafe_allow_html=True)
             col3, col4 = st.columns(2)
             with col3:
                 st.table(df_tic[:len(df_tic)//2])
             with col4:
                 st.table(df_tic[len(df_tic)//2:])
-
+            st.markdown("<h1 style='text-align: center; font-size: 24px;'>Fundamental Analysis</h1>", unsafe_allow_html=True)
             try:
                 df_fund, fund_changes = get_fundamentals(stk_tic)
                 st.dataframe(df_fund, width=750)
                 st.table(fund_changes)
             except:
                 st.warning('Dataset is not available')
-
-    
-
-
 
 
 def filter_stocks(data, col_name_change):
