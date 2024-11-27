@@ -64,7 +64,7 @@ with st.container(border=True):
 
     with update:
         if current_date == mod_date:
-            st.success('As on - ' + mod_date +" "+current_time.replace("_", ":"))
+            st.success('As on - ' + mod_date +" "+mod_time.replace("_", ":"))
         else:
             st.warning('As on - ' + mod_date +" "+mod_time.replace("_", ":"))
 
@@ -93,3 +93,25 @@ with st.container(border=True):
             st.dataframe(forecasted_df, hide_index=True,use_container_width=True)
     else:
         st.dataframe(forecasted_df[:10], hide_index=True,use_container_width=True)
+
+cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
+if cap_size == 'All':
+    data = data
+if cap_size == 'Large cap':
+    data = data[data['MARKET_CAP(CR)'] >= 20000].reset_index(drop=True)
+if cap_size == 'Mid Cap':
+    data = data[data['MARKET_CAP(CR)'].between(5000, 20000)].reset_index(drop=True)
+if cap_size == 'Small Cap':
+    data = data[data['MARKET_CAP(CR)'] <= 5000].reset_index(drop=True)
+if cap_size == 'Below 500(cr)':
+    data = data[data['MARKET_CAP(CR)'] <= 500].reset_index(drop=True)
+if cap_size == 'Above 500(cr)':
+    data = data[data['MARKET_CAP(CR)'] >= 500].reset_index(drop=True)
+
+with st.container():
+    gainers_losers_df= data[['STOCK','PRICE', 'PRICE_DIFF']].sort_values(by='PRICE_DIFF', ascending= False).reset_index(drop=True)
+    gainers = [list(v.values) for i, v in gainers_losers_df.iterrows() if v.values[2] > 5]
+    display_matrix(gainers, 'Top Gainers')
+
+    losers = [list(v.values) for i, v in gainers_losers_df.iterrows() if v.values[2] < -5][::-1]
+    display_matrix(losers, 'Top Losers')

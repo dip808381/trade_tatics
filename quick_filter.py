@@ -17,7 +17,7 @@ unsafe_allow_html=True
 with st.container(border=True):
     search_by_ticker(data)
 
-    
+
 cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
 if cap_size == 'All':
     data = data
