@@ -451,7 +451,7 @@ def load_data():
         downloaded_data = blob_client.download_blob().readall().decode("utf-8")
         stk_df = pd.read_csv(StringIO(downloaded_data))
     except:
-        file_name = [blob.name for blob in container_client.list_blobs()][-1]
+        file_name = [blob.name for blob in container_client.list_blobs() if blob.name.endswith('csv')][-1]
         blob_client = container_client.get_blob_client(file_name)
         downloaded_data = blob_client.download_blob().readall().decode("utf-8")
         stk_df = pd.read_csv(StringIO(downloaded_data))

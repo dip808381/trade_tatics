@@ -26,7 +26,7 @@ file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
 data = pd.read_csv(os.path.join(tmp,file_name))
 
 forecasted_json = read_json(os.path.join(tmp,forecast_json_path))
-forecasted_df = pd.DataFrame(forecasted_json[list(forecasted_json.keys())[-1]], columns=['TICKER', 'COMPANY_NAME', 'MARKET_CAP', 'PRICE', 'RATE(%)','PRED_PRICE'])
+forecasted_df = pd.DataFrame(forecasted_json[list(forecasted_json.keys())[-1]], columns=['TICKER', 'COMPANY_NAME', 'MAR_CAP', 'PRICE', 'RATE(%)','PREDICTED_PRICE'])
 forecasted_df = forecasted_df.round(2)
 
 # data refreshed
@@ -94,6 +94,8 @@ with st.container(border=True):
             st.dataframe(forecasted_df, hide_index=True,use_container_width=True)
     else:
         st.dataframe(forecasted_df[:10], hide_index=True,use_container_width=True)
+
+    st.write("Note: Above data is powered by advanced forecast models, but always pair it with thorough fundamental and technical analysis before investing!")
 
 cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
 if cap_size == 'All':
