@@ -167,104 +167,136 @@
             "Cool Caps Industries Limited",
             514,
             821.35,
-            77.08,
-            1454.45
+            51.02,
+            1240.4
         ],
         [
             "EMKAY",
             "Emkay Global Financial Services Limited",
             285,
-            342.5,
-            52.91,
-            523.72
+            339.05,
+            48.23,
+            502.57
         ],
         [
-            "SOMATEX",
-            "Soma Textiles & Industries Limited",
-            110,
-            54.84,
-            36.41,
-            74.81
+            "PRSMJOHNSN",
+            "Prism Johnson Limited",
+            8989,
+            201.74,
+            44.41,
+            291.33
+        ],
+        [
+            "LOKESHMACH",
+            "Lokesh Machines Limited",
+            685,
+            374.15,
+            30.01,
+            486.43
         ],
         [
             "TIRUPATI",
             "Shree Tirupati Balajee FIBC Limited",
             486,
             740.0,
-            28.76,
-            952.82
+            29.25,
+            956.45
         ],
         [
-            "BASML",
-            "Bannari Amman Spinning Mills Limited",
-            245,
-            52.21,
-            18.14,
-            61.68
+            "SOMATEX",
+            "Soma Textiles & Industries Limited",
+            110,
+            54.84,
+            27.57,
+            69.96
         ],
         [
-            "GOYALSALT",
-            "Goyal Salt Limited",
-            287,
-            207.95,
-            17.87,
-            245.11
-        ],
-        [
-            "JYOTISTRUC",
-            "Jyoti Structures Limited",
-            1739,
-            30.76,
-            17.04,
-            36.0
-        ],
-        [
-            "MARINE",
-            "Marine Electricals (India) Limited",
-            1183,
-            264.85,
-            13.24,
-            299.92
-        ],
-        [
-            "AURDIS",
-            "Aurangabad Distillery Limited",
-            191,
-            230.65,
-            11.9,
-            258.1
+            "COCHINSHIP",
+            "Cochin Shipyard Limited",
+            22935,
+            1579.25,
+            26.78,
+            2002.17
         ],
         [
             "PURVFLEXI",
             "Purv Flexipack Limited",
             440,
             203.15,
-            10.44,
-            224.36
+            25.87,
+            255.7
         ],
         [
-            "KNAGRI",
-            "KN Agri Resources Limited",
-            339,
-            276.25,
-            10.13,
-            304.23
+            "GOYALSALT",
+            "Goyal Salt Limited",
+            287,
+            207.95,
+            17.05,
+            243.41
         ],
         [
             "MKPL",
             "M K Proteins Limited",
             369,
             8.55,
-            9.78,
-            9.39
+            17.01,
+            10.0
+        ],
+        [
+            "KNAGRI",
+            "KN Agri Resources Limited",
+            339,
+            276.25,
+            16.56,
+            322.0
+        ],
+        [
+            "BASML",
+            "Bannari Amman Spinning Mills Limited",
+            245,
+            52.21,
+            15.09,
+            60.09
+        ],
+        [
+            "JYOTISTRUC",
+            "Jyoti Structures Limited",
+            1739,
+            30.53,
+            13.64,
+            34.69
+        ],
+        [
+            "UNITEDPOLY",
+            "United Polyfab Gujarat Limited",
+            210,
+            150.6,
+            12.69,
+            169.71
         ],
         [
             "CENTURYTEX",
             "Century Textiles & Industries Limited",
             18205,
             2796.2,
-            9.63,
-            3065.47
+            11.07,
+            3105.74
+        ],
+        [
+            "ARTNIRMAN",
+            "Art Nirman Limited",
+            124,
+            62.11,
+            10.13,
+            68.4
+        ],
+        [
+            "SHREYAS",
+            "Shreyas Shipping & Logistics Limited",
+            569,
+            414.15,
+            9.53,
+            453.62
         ],
         [
             "OSIAHYPER",
@@ -275,52 +307,20 @@
             36.12
         ],
         [
-            "SHREYAS",
-            "Shreyas Shipping & Logistics Limited",
-            569,
-            414.15,
-            8.42,
-            449.02
+            "AEROFLEX",
+            "Aeroflex Industries Limited",
+            1569,
+            205.35,
+            8.7,
+            223.22
         ],
         [
-            "NBIFIN",
-            "N. B. I. Industrial Finance Company Limited",
-            439,
-            3132.4,
-            8.04,
-            3384.24
-        ],
-        [
-            "JAYSREETEA",
-            "Jayshree Tea & Industries Limited",
-            270,
-            142.3,
-            7.5,
-            152.97
-        ],
-        [
-            "ARTNIRMAN",
-            "Art Nirman Limited",
-            124,
-            62.3,
-            7.4,
-            66.91
-        ],
-        [
-            "ALMONDZ",
-            "Almondz Global Securities Limited",
-            279,
-            26.99,
-            6.13,
-            28.64
-        ],
-        [
-            "UNIHEALTH",
-            "Unihealth Consultancy Limited",
-            207,
-            154.4,
-            5.89,
-            163.49
+            "MARINE",
+            "Marine Electricals (India) Limited",
+            1183,
+            263.11,
+            7.92,
+            283.95
         ]
     ]
 }

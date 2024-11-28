@@ -45,8 +45,8 @@ with st.container(border=True):
                 mod_date_time, csv_data, json_pred = load_data()
                 mod_date, mod_time = extract_date_and_time(mod_date_time)
                 mod_time = mod_time.replace(":", "_")
-                f_name = f"{mod_date}_{mod_time}.csv"
-                csv_data.to_csv(os.path.join(tmp,f_name), index=False)
+                file_name = f"{mod_date}_{mod_time}.csv"
+                csv_data.to_csv(os.path.join(tmp,file_name), index=False)
                 dump_json(os.path.join(tmp,forecast_json_path), json_pred)
             my_bar.empty()
             st.write('Data is updated in real-time.')
