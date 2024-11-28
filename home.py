@@ -23,21 +23,9 @@ if not os.path.exists(tmp) or len(os.listdir(tmp)) < 2:
     dump_json(os.path.join(tmp,forecast_json_path), json_pred)
 
 file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
-data = pd.read_csv(os.path.join(tmp,file_name))
-
-forecasted_json = read_json(os.path.join(tmp,forecast_json_path))
-forecasted_df = pd.DataFrame(forecasted_json[list(forecasted_json.keys())[-1]], columns=['TICKER', 'COMPANY_NAME', 'MAR_CAP', 'PRICE', 'RATE(%)','PREDICTED_PRICE'])
-forecasted_df = forecasted_df.round(2)
-
 # data refreshed
 current_date, current_time = get_current_date_time()
 mod_date, mod_time = extract_date_time_from_filename(file_name)
-
-data = data[['STOCK', 'COMPANY_NAME', 'MARKET_CAP(CR)', 'VOLUME', 'RELATIVE_VOLUME', 'PRICE',
-       'TREND_THREE', 'TREND_SIX', 'RSI', 'ATR',
-       'RSI_INDICATOR', 'UPTREND_INDICATOR', 'MOVING_AVG_IND', 'STRENGTH',
-       'CHART_INDICATOR', 'BREAKOUT', 'LAST_THREE_CANDEL',
-       'VOL_PRC_CORR', 'PRICE_DIFF', 'PEICE_GAP_PCTG','NADARAYA_WATSON', 'CDL_NME_TDY', 'CDL_SCR_TDY']]
 
 with st.container(border=True):
     note, update = st.columns(2)
@@ -76,6 +64,20 @@ with st.container(border=True):
     if st.session_state.page_refreshed:
         market_data = display_market()
         display_matrix(market_data, 'Indian Indices',columns_per_row = 4, percentage=False)
+
+data = pd.read_csv(os.path.join(tmp,file_name))
+
+forecasted_json = read_json(os.path.join(tmp,forecast_json_path))
+forecasted_df = pd.DataFrame(forecasted_json[list(forecasted_json.keys())[-1]], columns=['TICKER', 'COMPANY_NAME', 'MAR_CAP', 'PRICE', 'RATE(%)','PREDICTED_PRICE'])
+forecasted_df = forecasted_df.round(2)
+
+data = data[['STOCK', 'COMPANY_NAME', 'MARKET_CAP(CR)', 'VOLUME', 'RELATIVE_VOLUME', 'PRICE',
+       'TREND_THREE', 'TREND_SIX', 'RSI', 'ATR',
+       'RSI_INDICATOR', 'UPTREND_INDICATOR', 'MOVING_AVG_IND', 'STRENGTH',
+       'CHART_INDICATOR', 'BREAKOUT', 'LAST_THREE_CANDEL',
+       'VOL_PRC_CORR', 'PRICE_DIFF', 'PEICE_GAP_PCTG','NADARAYA_WATSON', 'CDL_NME_TDY', 'CDL_SCR_TDY']]
+
+
 
 with st.container(border=True):
     search_by_ticker(data)
