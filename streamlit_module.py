@@ -83,15 +83,15 @@ def search_by_ticker(data):
             df_comp = df_comp.T
             df_comp.reset_index(inplace=True)
             df_comp.columns = ['COLUMNS', 'VALUES']
-            stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'TICKER']
+            stk_tic = df_comp.loc[df_comp['COLUMNS'] == 'Ticker']
             stk_tic_val = stk_tic['VALUES'][0]
             plot_candle(stk_tic_val)
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Technical Analysis</h1>", unsafe_allow_html=True)
             col1, col2 = st.columns(2)
             with col1:
-                st.dataframe(df_tic[:len(df_tic)//2],height=420,hide_index=True,use_container_width=True)
+                st.dataframe(df_comp[:len(df_comp)//2],height=420,hide_index=True,use_container_width=True)
             with col2:
-                st.dataframe(df_tic[len(df_tic)//2:],height=420,hide_index=True,use_container_width=True)
+                st.dataframe(df_comp[len(df_comp)//2:],height=420,hide_index=True,use_container_width=True)
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Fundamental Analysis</h1>", unsafe_allow_html=True)
             try:
                 df_fund, fund_changes = get_fundamentals(stk_tic_val)
