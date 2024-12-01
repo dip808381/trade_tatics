@@ -163,164 +163,326 @@
     ],
     "2024-11-28": [
         [
+            "63MOONS",
+            "63 moons technologies limited",
+            1758,
+            631.5,
+            76.61,
+            1115.29
+        ],
+        [
+            "TTL",
+            "T T Limited",
+            224,
+            158.13,
+            72.71,
+            273.11
+        ],
+        [
+            "IITL",
+            "Industrial Investment Trust Limited",
+            438,
+            387.45,
+            65.76,
+            642.24
+        ],
+        [
             "COOLCAPS",
             "Cool Caps Industries Limited",
             514,
             821.35,
-            51.02,
-            1240.4
-        ],
-        [
-            "EMKAY",
-            "Emkay Global Financial Services Limited",
-            285,
-            339.05,
-            48.23,
-            502.57
-        ],
-        [
-            "PRSMJOHNSN",
-            "Prism Johnson Limited",
-            8989,
-            201.74,
-            44.41,
-            291.33
-        ],
-        [
-            "LOKESHMACH",
-            "Lokesh Machines Limited",
-            685,
-            374.15,
-            30.01,
-            486.43
-        ],
-        [
-            "TIRUPATI",
-            "Shree Tirupati Balajee FIBC Limited",
-            486,
-            740.0,
-            29.25,
-            956.45
+            39.4,
+            1144.96
         ],
         [
             "SOMATEX",
             "Soma Textiles & Industries Limited",
             110,
             54.84,
-            27.57,
-            69.96
+            35.78,
+            74.46
         ],
         [
-            "COCHINSHIP",
-            "Cochin Shipyard Limited",
-            22935,
-            1579.25,
-            26.78,
-            2002.17
+            "LOKESHMACH",
+            "Lokesh Machines Limited",
+            685,
+            359.7,
+            31.6,
+            473.37
         ],
         [
-            "PURVFLEXI",
-            "Purv Flexipack Limited",
-            440,
-            203.15,
-            25.87,
-            255.7
+            "HUDCO",
+            "Housing & Urban Development Corporation Limited",
+            37485,
+            227.69,
+            27.64,
+            290.62
+        ],
+        [
+            "SAGCEM",
+            "Sagar Cements Limited",
+            2722,
+            215.01,
+            23.09,
+            264.66
+        ],
+        [
+            "TIRUPATI",
+            "Shree Tirupati Balajee FIBC Limited",
+            486,
+            740.0,
+            21.83,
+            901.54
         ],
         [
             "GOYALSALT",
             "Goyal Salt Limited",
             287,
             207.95,
-            17.05,
-            243.41
+            21.61,
+            252.89
         ],
         [
-            "MKPL",
-            "M K Proteins Limited",
-            369,
-            8.55,
-            17.01,
-            10.0
+            "DEEPINDS",
+            "Deep Industries Limited",
+            1974,
+            566.7,
+            20.59,
+            683.38
+        ],
+        [
+            "CYIENTDLM",
+            "Cyient DLM Limited",
+            5713,
+            693.2,
+            19.89,
+            831.08
+        ],
+        [
+            "THEJO",
+            "Thejo Engineering Limited",
+            2632,
+            2163.25,
+            17.47,
+            2541.17
+        ],
+        [
+            "TVSELECT",
+            "TVS Electronics Limited",
+            467,
+            336.45,
+            17.22,
+            394.39
+        ],
+        [
+            "INVENTURE",
+            "Inventure Growth & Securities Limited",
+            176,
+            2.18,
+            15.15,
+            2.51
         ],
         [
             "KNAGRI",
             "KN Agri Resources Limited",
             339,
             276.25,
-            16.56,
-            322.0
+            14.77,
+            317.05
         ],
         [
-            "BASML",
-            "Bannari Amman Spinning Mills Limited",
-            245,
+            "ITI",
+            "ITI Limited",
+            24281,
+            295.67,
+            14.08,
+            337.3
+        ],
+        [
+            "MEDICO",
+            "Medico Remedies Limited",
+            399,
+            48.21,
+            13.79,
+            54.86
+        ],
+        [
+            "BAWEJA",
+            "Baweja Studios Limited",
+            162,
+            69.95,
+            13.22,
+            79.2
+        ],
+        [
+            "PAVNAIND",
+            "Pavna Industries Limited",
+            625,
+            554.4,
+            12.86,
+            625.7
+        ]
+    ],
+    "2024-11-29": [
+        [
+            "RAJTV",
+            "Raj Television Network Limited",
+            292,
+            67.83,
+            195.8,
+            200.64
+        ],
+        [
+            "JAGSNPHARM",
+            "Jagsonpal Pharmaceuticals Limited",
+            728,
+            761.2,
+            127.45,
+            1731.35
+        ],
+        [
+            "IITL",
+            "Industrial Investment Trust Limited",
+            438,
+            406.8,
+            53.9,
+            626.07
+        ],
+        [
+            "63MOONS",
+            "63 moons technologies limited",
+            1758,
+            663.05,
             52.21,
-            15.09,
-            60.09
+            1009.23
         ],
         [
-            "JYOTISTRUC",
-            "Jyoti Structures Limited",
-            1739,
-            30.53,
-            13.64,
-            34.69
+            "HEXATRADEX",
+            "Hexa Tradex Limited",
+            833,
+            300.85,
+            49.38,
+            449.41
         ],
         [
-            "UNITEDPOLY",
-            "United Polyfab Gujarat Limited",
-            210,
-            150.6,
-            12.69,
-            169.71
+            "SOMATEX",
+            "Soma Textiles & Industries Limited",
+            110,
+            65.8,
+            38.0,
+            90.8
         ],
         [
-            "CENTURYTEX",
-            "Century Textiles & Industries Limited",
-            18205,
-            2796.2,
-            11.07,
-            3105.74
+            "IRIS",
+            "Iris Business Services Limited",
+            221,
+            421.2,
+            34.61,
+            566.98
         ],
         [
-            "ARTNIRMAN",
-            "Art Nirman Limited",
-            124,
-            62.11,
-            10.13,
-            68.4
+            "PPLPHARMA",
+            "Piramal Pharma Limited",
+            17052,
+            268.75,
+            26.9,
+            341.04
         ],
         [
-            "SHREYAS",
-            "Shreyas Shipping & Logistics Limited",
-            569,
-            414.15,
-            9.53,
-            453.62
+            "WABAG",
+            "VA Tech Wabag Limited",
+            4747,
+            1794.9,
+            25.86,
+            2259.06
         ],
         [
-            "OSIAHYPER",
-            "Osia Hyper Retail Limited",
-            331,
-            33.13,
-            9.02,
-            36.12
+            "SAGCEM",
+            "Sagar Cements Limited",
+            2722,
+            215.97,
+            21.01,
+            261.35
         ],
         [
-            "AEROFLEX",
-            "Aeroflex Industries Limited",
-            1569,
-            205.35,
-            8.7,
-            223.22
+            "UDS",
+            "Updater Services Limited",
+            2144,
+            424.4,
+            18.07,
+            501.09
         ],
         [
-            "MARINE",
-            "Marine Electricals (India) Limited",
-            1183,
-            263.11,
-            7.92,
-            283.95
+            "LLOYDSME",
+            "Lloyds Metals And Energy Limited",
+            30416,
+            1039.5,
+            17.8,
+            1224.53
+        ],
+        [
+            "VLEGOV",
+            "VL E-Governance & IT Solutions Limited",
+            537,
+            157.11,
+            16.8,
+            183.5
+        ],
+        [
+            "ZIMLAB",
+            "Zim Laboratories Limited",
+            462,
+            114.63,
+            15.91,
+            132.87
+        ],
+        [
+            "AUSOMENT",
+            "Ausom Enterprise Limited",
+            125,
+            106.77,
+            15.36,
+            123.17
+        ],
+        [
+            "SASKEN",
+            "Sasken Technologies Limited",
+            2306,
+            2189.7,
+            13.88,
+            2493.63
+        ],
+        [
+            "TVSELECT",
+            "TVS Electronics Limited",
+            467,
+            343.15,
+            13.75,
+            390.33
+        ],
+        [
+            "DIVISLAB",
+            "Divi's Laboratories Limited",
+            91461,
+            6172.7,
+            12.96,
+            6972.68
+        ],
+        [
+            "CREATIVE",
+            "Creative Newtech Limited",
+            1001,
+            960.8,
+            12.6,
+            1081.86
+        ],
+        [
+            "HONASA",
+            "Honasa Consumer Limited",
+            13047,
+            263.95,
+            11.95,
+            295.49
         ]
     ]
 }

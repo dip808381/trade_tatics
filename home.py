@@ -97,9 +97,12 @@ with st.container(border=True):
     else:
         st.dataframe(forecasted_df[:10], hide_index=True,use_container_width=True)
 
-    st.write("Note: Above data is powered by advanced forecast models, but always pair it with thorough fundamental and technical analysis before investing!")
+    st.info("Note: Above data is powered by advanced forecast models, but always pair it with thorough fundamental and technical analysis before investing!")
 
-cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
+st.markdown("<h1 style='text-align: center; font-size: 30px;'>Filter Based On Market Size</h1>", unsafe_allow_html=True)
+options = ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)']
+cap_size = st.radio(' ', options, horizontal=True)
+
 if cap_size == 'All':
     data = data
 if cap_size == 'Large cap':
@@ -113,10 +116,6 @@ if cap_size == 'Below 500(cr)':
 if cap_size == 'Above 500(cr)':
     data = data[data['MARKET_CAP(CR)'] >= 500].reset_index(drop=True)
 
-with st.container():
-    gainers_losers_df= data[['STOCK','PRICE', 'PRICE_DIFF']].sort_values(by='PRICE_DIFF', ascending= False).reset_index(drop=True)
-    gainers = [list(v.values) for i, v in gainers_losers_df.iterrows() if v.values[2] > 5]
-    display_matrix(gainers, 'Top Gainers')
 
-    losers = [list(v.values) for i, v in gainers_losers_df.iterrows() if v.values[2] < -5][::-1]
-    display_matrix(losers, 'Top Losers')
+plot_gauge(cap_size, data)
+

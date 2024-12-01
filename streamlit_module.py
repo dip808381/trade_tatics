@@ -3,6 +3,7 @@ import pytz
 import requests
 import json
 import pandas as pd
+import numpy as np
 from io import StringIO
 import streamlit as st
 from datetime import datetime
@@ -70,6 +71,7 @@ def numeric_filter(df, column_name, col_name_change):
 
 def search_by_ticker(data):
     col_name_change = rename_columns()
+    col_name_change = {key: value.title() for key, value in col_name_change.items()}
     # data.rename(columns=rename_columns(), inplace=True)
     ser_name = st.selectbox('GET ALL TECHNICAL AND FUNDAMENTAL ANALYSIS..', ['TICKER','COMPANY_NAME'], placeholder='search by company or ticker..')
 
@@ -87,9 +89,9 @@ def search_by_ticker(data):
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Technical Analysis</h1>", unsafe_allow_html=True)
             col1, col2 = st.columns(2)
             with col1:
-                st.table(df_comp[:len(df_comp)//2])
+                st.dataframe(df_tic[:len(df_tic)//2],height=420,hide_index=True,use_container_width=True)
             with col2:
-                st.table(df_comp[len(df_comp)//2:])
+                st.dataframe(df_tic[len(df_tic)//2:],height=420,hide_index=True,use_container_width=True)
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Fundamental Analysis</h1>", unsafe_allow_html=True)
             try:
                 df_fund, fund_changes = get_fundamentals(stk_tic_val)
@@ -111,9 +113,9 @@ def search_by_ticker(data):
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Technical Analysis</h1>", unsafe_allow_html=True)
             col3, col4 = st.columns(2)
             with col3:
-                st.table(df_tic[:len(df_tic)//2])
+                st.dataframe(df_tic[:len(df_tic)//2],height=420,hide_index=True,use_container_width=True)
             with col4:
-                st.table(df_tic[len(df_tic)//2:])
+                st.dataframe(df_tic[len(df_tic)//2:],height=420,hide_index=True,use_container_width=True)
             st.markdown("<h1 style='text-align: center; font-size: 24px;'>Fundamental Analysis</h1>", unsafe_allow_html=True)
             try:
                 df_fund, fund_changes = get_fundamentals(stk_tic)
@@ -395,6 +397,69 @@ def plot_candle(name):
     # Do not show OHLC's rangeslider plot 
     fig.update(layout_xaxis_rangeslider_visible=False)
     st.plotly_chart(fig)
+
+# Gauge chart setup
+def plot_gauge(test, df):
+    latest_rsi = float(np.mean(df['RSI']))
+    plot_bgcolor = "#def"
+    quadrant_colors = [plot_bgcolor, "#f25829", "#f2a529", "#eff229", "#85e043", "#2bad4e"] 
+    quadrant_text = ["", "<b>Extreme Overbought</b>", "<b>Momentum Zone</b>", "<b>Neutral</b>", "<b>Over Sold</b>", "<b>Extremely Oversold</b>"]
+    n_quadrants = len(quadrant_colors) - 1
+
+    min_value = 0
+    max_value = 100  # RSI ranges from 0 to 100
+    hand_length = np.sqrt(2) / 4
+    hand_angle =  360 * (-latest_rsi/2 - min_value) / (max_value - min_value) - 180
+
+    # Create gauge chart
+    fig = go.Figure(
+        data=[
+            go.Pie(
+                values=[0.5] + (np.ones(n_quadrants) / 2 / n_quadrants).tolist(),
+                rotation=90,
+                hole=0.5,
+                marker_colors=quadrant_colors,
+                text=quadrant_text,
+                textinfo="text",
+                hoverinfo="skip",
+                sort=False
+            ),
+        ],
+        layout=go.Layout(
+            showlegend=False,
+            margin=dict(b=0,t=10,l=10,r=10),
+            width=700,
+            height=700,
+            paper_bgcolor=plot_bgcolor,
+            annotations=[
+                go.layout.Annotation(
+                    text=f"<b>{test} RSI Level:</b><br>{latest_rsi:.2f}",
+                    x=0.5, xanchor="center", xref="paper",
+                    y=0.25, yanchor="bottom", yref="paper",
+                    showarrow=False,
+                    font=dict(size=14)
+                )
+            ],
+            shapes=[
+                go.layout.Shape(
+                    type="circle",
+                    x0=0.48, x1=0.52,
+                    y0=0.48, y1=0.52,
+                    fillcolor="#333",
+                    line_color="#333",
+                ),
+                go.layout.Shape(
+                    type="line",
+                    x0=0.5, x1=0.5 + hand_length * np.cos(np.radians(hand_angle)),
+                    y0=0.5, y1=0.5 + hand_length * np.sin(np.radians(hand_angle)),
+                    line=dict(color="#333", width=4)
+                )
+            ]
+        )
+    )
+    #st.plotly_chart(fig)
+    html_code = fig.to_html(full_html=False, include_plotlyjs="cdn")
+    st.components.v1.html(html_code, height=550)
 
 def extract_date_and_time(datetime_str):
     # Regex pattern to match date (YYYY-MM-DD) and time (HH:MM:SS)
