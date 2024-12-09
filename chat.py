@@ -6,10 +6,11 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv('.env'))
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-load_dotenv()
+# from dotenv import load_dotenv, find_dotenv
+# _ = load_dotenv(find_dotenv('.env'))
+# load_dotenv()
+
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 
 tmp = 'tmp'
 file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
