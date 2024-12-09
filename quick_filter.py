@@ -18,7 +18,26 @@ with st.container(border=True):
     search_by_ticker(data)
 
 
-cap_size = st.selectbox('FILTER BASED ON MARKET SIZE', ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)'])
+st.markdown(
+    """
+    <style>
+    .stRadio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .stRadio > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+options = ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)']
+cap_size = st.radio("Filter Based On Market Size..", options, horizontal=True)
+
 if cap_size == 'All':
     data = data
 if cap_size == 'Large cap':

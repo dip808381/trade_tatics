@@ -100,8 +100,25 @@ with st.container(border=True):
     st.info("Note: Above data is powered by advanced forecast models, but always pair it with thorough fundamental and technical analysis before investing!")
 
 st.markdown("<h1 style='text-align: center; font-size: 30px;'>Filter Based On Market Size</h1>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    .stRadio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .stRadio > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 options = ['All','Large cap', 'Mid Cap', 'Small Cap', 'Below 500(cr)', 'Above 500(cr)']
-cap_size = st.radio(' ', options, horizontal=True)
+cap_size = st.radio("Choose a market size filter to explore the current market's trading zones.", options, horizontal=True)
 
 if cap_size == 'All':
     data = data
