@@ -41,8 +41,7 @@ with st.container(border=True):
             for percent_complete in range(100):
                 time.sleep(0.01)
                 my_bar.progress(percent_complete + 1, text=progress_text)
-            shutil.rmtree('tmp')
-            tmp = 'tmp'
+            shutil.rmtree(tmp)
             if not os.path.exists(tmp):
                 os.mkdir(tmp)
                 mod_date_time, csv_data, json_pred = load_data()
