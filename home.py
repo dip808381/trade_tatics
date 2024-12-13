@@ -4,9 +4,12 @@ import streamlit as st
 import pandas as pd
 from streamlit_module import *
 import os
+import warnings
+warnings.filterwarnings('ignore')
+
 st.markdown("<h1 style='text-align: center;'>WELCOME TO TRADE TACTICS</h1>", unsafe_allow_html=True)
 
-tmp = 'tmp'
+tmp = 'data/tmp'
 forecast_json_path = 'daily_forecast.json'
 
 if not os.path.exists(tmp) or len(os.listdir(tmp)) < 2:

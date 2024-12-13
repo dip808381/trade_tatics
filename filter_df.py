@@ -2,11 +2,10 @@ import os
 import streamlit as st
 from streamlit_module import *
 import pandas as pd
-import numpy as np
-from datetime import date, timedelta
-import shutil
+import warnings
+warnings.filterwarnings('ignore')
 
-tmp = 'tmp'
+tmp = 'data/tmp'
 
 file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
 data = pd.read_csv(os.path.join(tmp,file_name))

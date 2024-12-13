@@ -1297,156 +1297,812 @@
     ],
     "2024-12-09": [
         [
-            "INFOLLION",
-            "Infollion Research Services Limited",
-            185,
-            515.1,
-            97.69,
-            1018.3
-        ],
-        [
             "SEJALLTD",
             "Sejal Glass Limited",
             392,
-            602.0,
-            82.44,
-            1098.29
+            602.3,
+            107.39,
+            1249.11
         ],
         [
             "TIRUPATIFL",
             "Tirupati Forge Limited",
             158,
             54.42,
-            71.71,
-            93.44
+            93.44,
+            105.27
         ],
         [
-            "TTL",
-            "T T Limited",
-            224,
-            178.8,
-            59.3,
-            284.83
+            "SRHHYPOLTD",
+            "Sree Rayalaseema Hi-Strength Hypo Limited",
+            845,
+            767.5,
+            74.08,
+            1336.06
+        ],
+        [
+            "PANSARI",
+            "Pansari Developers Limited",
+            139,
+            170.0,
+            73.83,
+            295.51
         ],
         [
             "SUNDRMBRAK",
             "Sundaram Brake Linings Limited",
             267,
             1006.55,
-            33.79,
-            1346.66
+            46.12,
+            1470.77
         ],
         [
-            "GODREJIND",
-            "Godrej Industries Limited",
-            26344,
-            1074.25,
-            30.96,
-            1406.84
+            "INFOLLION",
+            "Infollion Research Services Limited",
+            185,
+            515.1,
+            44.03,
+            741.9
         ],
         [
-            "ACCURACY",
-            "Accuracy Shipping Limited",
-            149,
-            11.98,
-            29.64,
-            15.53
+            "RML",
+            "Rane (Madras) Limited",
+            1118,
+            981.5,
+            42.05,
+            1394.22
+        ],
+        [
+            "TTL",
+            "T T Limited",
+            224,
+            182.24,
+            41.14,
+            257.21
+        ],
+        [
+            "IRIS",
+            "Iris Business Services Limited",
+            221,
+            459.8,
+            39.17,
+            639.9
+        ],
+        [
+            "SUPREMEINF",
+            "Supreme Infrastructure India Limited",
+            170,
+            136.83,
+            37.84,
+            188.61
+        ],
+        [
+            "MANORAMA",
+            "Manorama Industries Limited",
+            2374,
+            1230.4,
+            36.03,
+            1673.71
+        ],
+        [
+            "SIGNPOST",
+            "Signpost India Limited",
+            2009,
+            360.5,
+            31.0,
+            472.26
+        ],
+        [
+            "SVLL",
+            "Shree Vasu Logistics Limited",
+            255,
+            332.0,
+            29.0,
+            428.28
+        ],
+        [
+            "ZAGGLE",
+            "Zaggle Prepaid Ocean Services Limited",
+            3525,
+            550.55,
+            28.87,
+            709.49
+        ],
+        [
+            "NEOGEN",
+            "Neogen Chemicals Limited",
+            3155,
+            2356.25,
+            27.16,
+            2996.21
+        ],
+        [
+            "PGIL",
+            "Pearl Global Industries Limited",
+            2383,
+            1312.25,
+            26.94,
+            1665.77
+        ],
+        [
+            "NAHARSPING",
+            "Nahar Spinning Mills Limited",
+            968,
+            280.8,
+            26.84,
+            356.17
+        ],
+        [
+            "DYNPRO",
+            "Dynemic Products Limited",
+            313,
+            455.65,
+            25.89,
+            573.62
+        ],
+        [
+            "IMAGICAA",
+            "Imagicaaworld Entertainment Limited",
+            3722,
+            76.67,
+            25.38,
+            96.13
+        ],
+        [
+            "PKTEA",
+            "The Peria Karamalai Tea & Produce Company Limited",
+            101,
+            641.7,
+            24.08,
+            796.22
+        ]
+    ],
+    "2024-12-10": [
+        [
+            "ROSSELLIND",
+            "Rossell India Limited",
+            1338,
+            88.31,
+            139.14,
+            211.18
+        ],
+        [
+            "SEJALLTD",
+            "Sejal Glass Limited",
+            392,
+            632.4,
+            105.79,
+            1301.42
+        ],
+        [
+            "KITEX",
+            "Kitex Garments Limited",
+            1209,
+            800.3,
+            97.74,
+            1582.51
+        ],
+        [
+            "63MOONS",
+            "63 moons technologies limited",
+            1758,
+            873.95,
+            85.32,
+            1619.6
+        ],
+        [
+            "INFOLLION",
+            "Infollion Research Services Limited",
+            185,
+            515.1,
+            79.2,
+            923.06
+        ],
+        [
+            "GFLLIMITED",
+            "GFL Limited",
+            744,
+            101.5,
+            71.17,
+            173.74
+        ],
+        [
+            "NSIL",
+            "Nalwa Sons Investments Limited",
+            1717,
+            8480.2,
+            59.98,
+            13566.62
+        ],
+        [
+            "HINDOILEXP",
+            "Hindustan Oil Exploration Company Limited",
+            2350,
+            205.78,
+            37.59,
+            283.13
+        ],
+        [
+            "CTE",
+            "Cambridge Technology Enterprises Limited",
+            163,
+            108.64,
+            32.54,
+            143.99
+        ],
+        [
+            "GROBTEA",
+            "The Grob Tea Company Limited",
+            102,
+            1206.15,
+            30.94,
+            1579.33
+        ],
+        [
+            "HIMATSEIDE",
+            "Himatsingka Seide Limited",
+            1203,
+            213.61,
+            30.92,
+            279.66
+        ],
+        [
+            "DALMIASUG",
+            "Dalmia Bharat Sugar and Industries Limited",
+            2753,
+            467.5,
+            29.21,
+            604.06
+        ],
+        [
+            "GRWRHITECH",
+            "Garware Hi-Tech Films Limited",
+            4062,
+            5226.65,
+            28.72,
+            6727.74
+        ],
+        [
+            "VSTIND",
+            "VST Industries Limited",
+            5512,
+            339.55,
+            26.83,
+            430.65
+        ],
+        [
+            "HNDFDS",
+            "Hindustan Foods Limited",
+            5413,
+            585.7,
+            23.42,
+            722.87
+        ],
+        [
+            "RAYMOND",
+            "Raymond Limited",
+            12038,
+            1799.95,
+            22.94,
+            2212.86
         ],
         [
             "TBZ",
             "Tribhovandas Bhimji Zaveri Limited",
             694,
-            283.39,
-            22.73,
-            347.8
+            283.94,
+            21.23,
+            344.22
         ],
         [
-            "INSECTICID",
-            "Insecticides (India) Limited",
-            1439,
-            779.5,
-            15.99,
-            904.14
+            "SBCL",
+            "Shivalik Bimetal Controls Limited",
+            2991,
+            600.0,
+            20.25,
+            721.5
         ],
         [
-            "SUNDRMFAST",
-            "Sundram Fasteners Limited",
-            22979,
-            1150.0,
-            15.15,
-            1324.22
+            "AARON",
+            "Aaron Industries Limited",
+            273,
+            367.25,
+            18.58,
+            435.49
         ],
         [
-            "ESSENTIA",
-            "Integra Essentia Limited",
-            319,
-            3.22,
+            "NDRAUTO",
+            "Ndr Auto Components Limited",
+            1048,
+            780.45,
+            16.91,
+            912.42
+        ]
+    ],
+    "2024-12-11": [
+        [
+            "PANACEABIO",
+            "Panacea Biotec Limited",
+            744,
+            470.3,
+            121.39,
+            1041.2
+        ],
+        [
+            "SADHNANIQ",
+            "Sadhana Nitrochem Limited",
+            1541,
+            52.8,
+            73.93,
+            91.84
+        ],
+        [
+            "DGCONTENT",
+            "Digicontent Limited",
+            124,
+            59.09,
+            58.26,
+            93.52
+        ],
+        [
+            "WEBELSOLAR",
+            "Websol Energy System Limited",
+            2048,
+            1535.55,
+            45.03,
+            2227.01
+        ],
+        [
+            "GLOBALPET",
+            "Global Pet Industries Limited",
+            101,
+            114.65,
+            38.0,
+            158.22
+        ],
+        [
+            "HIGREEN",
+            "Hi-Green Carbon Limited",
+            408,
+            258.3,
+            35.08,
+            348.91
+        ],
+        [
+            "GENCON",
+            "Generic Engineering Construction and Projects Limited",
+            200,
+            48.88,
+            28.89,
+            63.0
+        ],
+        [
+            "ARVEE",
+            "Arvee Laboratories (India) Limited",
+            158,
+            205.78,
+            27.65,
+            262.68
+        ],
+        [
+            "CREATIVE",
+            "Creative Newtech Limited",
+            1001,
+            1039.85,
+            26.63,
+            1316.76
+        ],
+        [
+            "TREJHARA",
+            "TREJHARA SOLUTIONS LIMITED",
+            218,
+            263.0,
+            25.94,
+            331.22
+        ],
+        [
+            "SUMMITSEC",
+            "Summit Securities Limited",
+            1332,
+            3565.75,
+            25.9,
+            4489.28
+        ],
+        [
+            "JWL",
+            "Jupiter Wagons Limited",
+            15425,
+            552.3,
+            25.26,
+            691.81
+        ],
+        [
+            "NILASPACES",
+            "Nila Spaces Limited",
+            218,
+            16.92,
+            24.54,
+            21.07
+        ],
+        [
+            "PRECAM",
+            "Precision Camshafts Limited",
+            1876,
+            352.35,
+            23.79,
+            436.17
+        ],
+        [
+            "VARDMNPOLY",
+            "Vardhman Polytex Limited",
+            203,
+            12.48,
+            21.83,
+            15.2
+        ],
+        [
+            "RITCO",
+            "Ritco Logistics Limited",
+            534,
+            426.15,
+            21.37,
+            517.22
+        ],
+        [
+            "CHEVIOT",
+            "Cheviot Company Limited",
+            755,
+            1385.35,
+            20.71,
+            1672.26
+        ],
+        [
+            "NBIFIN",
+            "N. B. I. Industrial Finance Company Limited",
+            439,
+            3636.3,
+            19.67,
+            4351.56
+        ],
+        [
+            "MOLDTECH",
+            "Mold-Tek Technologies Limited",
+            516,
+            220.02,
+            19.53,
+            262.99
+        ],
+        [
+            "SHAILY",
+            "Shaily Engineering Plastics Limited",
+            2430,
+            1449.0,
+            18.69,
+            1719.82
+        ]
+    ],
+    "2024-12-12": [
+        [
+            "TIRUPATIFL",
+            "Tirupati Forge Limited",
+            158,
+            62.97,
+            66.75,
+            105.0
+        ],
+        [
+            "RAJTV",
+            "Raj Television Network Limited",
+            292,
+            75.01,
+            64.89,
+            123.68
+        ],
+        [
+            "ANUP",
+            "The Anup Engineering Limited",
+            3135,
+            3741.75,
+            52.25,
+            5696.81
+        ],
+        [
+            "IPSL",
+            "Integrated Personnel Services Limited",
+            147,
+            299.0,
+            30.11,
+            389.03
+        ],
+        [
+            "HERCULES",
+            "Hercules Hoists Limited",
+            1724,
+            245.79,
+            27.25,
+            312.77
+        ],
+        [
+            "NEULANDLAB",
+            "Neuland Laboratories Limited",
+            8111,
+            15989.35,
+            26.74,
+            20264.9
+        ],
+        [
+            "SHREEPUSHK",
+            "Shree Pushkar Chemicals & Fertilisers Limited",
+            502,
+            359.65,
+            25.78,
+            452.37
+        ],
+        [
+            "INFINIUM",
+            "Infinium Pharmachem Limited",
+            318,
+            313.65,
+            21.78,
+            381.96
+        ],
+        [
+            "ALMONDZ",
+            "Almondz Global Securities Limited",
+            279,
+            29.61,
+            20.98,
+            35.82
+        ],
+        [
+            "AUTOIND",
+            "Autoline Industries Limited",
+            445,
+            123.52,
+            19.57,
+            147.69
+        ],
+        [
+            "TTML",
+            "Tata Teleservices (Maharashtra) Limited",
+            14466,
+            85.39,
+            19.07,
+            101.67
+        ],
+        [
+            "PARIN",
+            "Parin Furniture Limited",
+            167,
+            399.0,
+            18.58,
+            473.13
+        ],
+        [
+            "PYRAMID",
+            "Pyramid Technoplast Limited",
+            532,
+            225.35,
+            17.77,
+            265.39
+        ],
+        [
+            "GHCL",
+            "GHCL Limited",
+            4242,
+            740.75,
+            16.54,
+            863.27
+        ],
+        [
+            "BLISSGVS",
+            "Bliss GVS Pharma Limited",
+            1181,
+            173.73,
+            16.52,
+            202.43
+        ],
+        [
+            "LGHL",
+            "Laxmi Goldorna House Limited",
+            604,
+            539.25,
+            16.06,
+            625.85
+        ],
+        [
+            "SOFTTECH",
+            "Softtech Engineers Limited",
+            300,
+            551.4,
+            14.06,
+            628.93
+        ],
+        [
+            "TIRUPATI",
+            "Shree Tirupati Balajee FIBC Limited",
+            486,
+            892.5,
+            13.72,
+            1014.95
+        ],
+        [
+            "AEROFLEX",
+            "Aeroflex Industries Limited",
+            1569,
+            230.61,
             13.11,
-            3.64
+            260.84
         ],
         [
-            "POLYPLEX",
-            "Polyplex Corporation Limited",
-            2403,
-            1406.8,
-            8.54,
-            1526.94
+            "AKSHOPTFBR",
+            "Aksh Optifibre Limited",
+            130,
+            13.85,
+            12.94,
+            15.64
+        ]
+    ],
+    "2024-12-13": [
+        [
+            "SIYSIL",
+            "Siyaram Silk Mills Limited",
+            1991,
+            969.05,
+            85.02,
+            1792.94
         ],
         [
-            "JAINAM",
-            "Jainam Ferro Alloys (I) Limited",
-            132,
-            215.45,
-            8.54,
-            233.85
+            "KIRIINDUS",
+            "Kiri Industries Limited",
+            1571,
+            644.05,
+            77.14,
+            1140.87
         ],
         [
-            "DJML",
-            "DJ Mediaprint & Logistics Limited",
-            184,
-            185.35,
-            8.29,
-            200.72
+            "RAMCOCEM",
+            "The Ramco Cements Limited",
+            19152,
+            1040.7,
+            38.37,
+            1440.02
         ],
         [
-            "CEATLTD",
-            "CEAT Limited",
-            10850,
-            3427.15,
-            7.53,
-            3685.21
+            "BIL",
+            "Bhartiya International Limited",
+            317,
+            826.2,
+            35.78,
+            1121.81
         ],
         [
-            "KEL",
-            "Kundan Edifice Limited",
-            149,
-            150.85,
-            6.32,
-            160.38
+            "SIMPLEXINF",
+            "Simplex Infrastructures Limited",
+            585,
+            339.8,
+            35.72,
+            461.18
         ],
         [
-            "STEELCITY",
-            "Steel City Securities Limited",
-            112,
-            120.25,
-            6.04,
-            127.51
+            "THANGAMAYL",
+            "Thangamayil Jewellery Limited",
+            3533,
+            2089.05,
+            21.39,
+            2535.9
         ],
         [
-            "ALPEXSOLAR",
-            "Alpex Solar Limited",
-            813,
-            893.4,
-            5.26,
-            940.39
+            "PGEL",
+            "PG Electroplast Limited",
+            4325,
+            916.55,
+            21.38,
+            1112.51
         ],
         [
-            "KRISHCA",
-            "Krishca Strapping Solutions Limited",
-            268,
-            350.8,
-            5.23,
-            369.15
+            "BEPL",
+            "Bhansali Engineering Polymers Limited",
+            2223,
+            150.6,
+            21.21,
+            182.54
+        ],
+        [
+            "CELLECOR",
+            "Cellecor Gadgets Limited",
+            421,
+            61.6,
+            18.05,
+            72.72
+        ],
+        [
+            "PRIVISCL",
+            "Privi Speciality Chemicals Limited",
+            3871,
+            1923.75,
+            17.66,
+            2263.48
+        ],
+        [
+            "PDMJEPAPER",
+            "Pudumjee Paper Products Limited",
+            596,
+            195.3,
+            16.11,
+            226.76
+        ],
+        [
+            "ARIES",
+            "Aries Agro Limited",
+            314,
+            385.85,
+            14.01,
+            439.91
+        ],
+        [
+            "ALMONDZ",
+            "Almondz Global Securities Limited",
+            279,
+            31.09,
+            13.9,
+            35.41
+        ],
+        [
+            "HARRMALAYA",
+            "Harrisons  Malayalam Limited",
+            304,
+            292.65,
+            12.99,
+            330.67
+        ],
+        [
+            "EMMBI",
+            "Emmbi Industries Limited",
+            158,
+            152.61,
+            12.85,
+            172.22
+        ],
+        [
+            "URBAN",
+            "Urban Enviro Waste Management Limited",
+            161,
+            630.7,
+            11.42,
+            702.73
+        ],
+        [
+            "PLATIND",
+            "Platinum Industries Limited",
+            941,
+            487.3,
+            11.34,
+            542.56
+        ],
+        [
+            "JBMA",
+            "JBM Auto Limited",
+            21333,
+            1763.25,
+            11.21,
+            1960.91
+        ],
+        [
+            "HOMESFY",
+            "Homesfy Realty Limited",
+            137,
+            519.0,
+            11.03,
+            576.25
+        ],
+        [
+            "CADSYS",
+            "Cadsys (India) Limited",
+            169,
+            124.6,
+            10.32,
+            137.46
         ]
     ]
 }

@@ -5,14 +5,21 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
+from langchain.prompts import PromptTemplate
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_pinecone import PineconeVectorStore
+from langchain.chains import RetrievalQA
+import warnings
+warnings.filterwarnings('ignore')
 
 # from dotenv import load_dotenv, find_dotenv
 # _ = load_dotenv(find_dotenv('.env'))
 # load_dotenv()
 
 os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE_API_KEY"]
 
-tmp = 'tmp'
+tmp = 'data/tmp'
 file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
 
 # app config
@@ -67,6 +74,35 @@ def get_response_from_csv(user_query):
     response = agent_executer.run(user_query)
     return response
 
+def get_response_book(user_query):
+    embedding = OpenAIEmbeddings()
+    pinecone_index_name = "technical-martin"
+    vectorstore = PineconeVectorStore(index_name=pinecone_index_name, embedding=embedding)
+    retriever = vectorstore.as_retriever(search_kwargs={'k':10})
+    prompt_template = PromptTemplate(
+        input_variables=["context","question"],
+        template=(
+            "You are an financial expert in stock market for technical and fundamental analysis, Use the following context to answer the question"
+            "Context:\n{context}\n\n"
+            "Question:\n{question}\n\n"
+            "Answer concisely and accurately and detailed:"
+        )
+    )
+
+    llm = ChatOpenAI()
+
+    chain = RetrievalQA.from_chain_type(
+        llm=llm, 
+        retriever=retriever,
+        chain_type='stuff',
+        chain_type_kwargs={"prompt": prompt_template,"document_variable_name": "context"},
+    )
+
+    model_output = chain.invoke({"query":user_query})
+    return model_output['result']
+    
+
+
 # session state
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [
@@ -75,7 +111,14 @@ if "chat_history" not in st.session_state:
 
 options = ['General', 'Learning', 'Technical', 'Fundamental']
 chat_options = st.radio('Select options you want to explore today..', options,index=0, horizontal=True)
-
+if chat_options == 'General':
+    st.info("Your query will be processed directly by ChatGPT to provide answers to general questions.")
+elif chat_options == 'Learning':
+    st.info("Your query will be directly addressed using insights from the renowned book Technical Analysis Explained by Martin J. Pring, offering detailed and authoritative technical information.")
+elif chat_options == 'Technical':
+    st.info("your query will be processed using data from an excel sheet containing the latest technical information, such as stock details, company name, market capitalization, volume, price, and trends for the last three and six months. it also includes indicators like RSI, ATR, moving averages, uptrend signals, breakout patterns, and candlestick analysis for yesterday and today. the data provides comprehensive insights, including volume-price correlations, price gaps, and strength indicators.")
+elif chat_options == 'Fundamental':
+    st.info("You will get the information like general option, Fundamentals will be added soon..")
 # conversation
 for message in st.session_state.chat_history:
     if isinstance(message, AIMessage):
@@ -98,7 +141,7 @@ if user_query is not None and user_query != "":
             response = get_response(user_query, st.session_state.chat_history)
             st.markdown(response)
         elif chat_options == 'Learning':
-            response = get_response(user_query, st.session_state.chat_history)
+            response = get_response_book(user_query)
             st.markdown(response)
         elif chat_options == 'Technical':
             response = get_response_from_csv(user_query)

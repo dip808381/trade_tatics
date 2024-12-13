@@ -3,8 +3,10 @@ import streamlit as st
 import pandas as pd
 from streamlit_module import *
 import os
+import warnings
+warnings.filterwarnings('ignore')
 
-tmp = 'tmp'
+tmp = 'data/tmp'
 file_name = [file for file in os.listdir(tmp) if file.endswith('csv')][-1]
 data = pd.read_csv(os.path.join(tmp,file_name))
 
